@@ -18,3 +18,5 @@ https://arxiv.org/pdf/1712.02777.pdf
 - A recurrent neural network for classification of unevenly sampled variable stars
 https://www.nature.com/articles/s41550-017-0321-z#ref-CR11
 
+- IMPROVING GAIA PARALLAX PRECISION WITH A DATA-DRIVEN MODEL OF STARS
+https://arxiv.org/pdf/1706.05055.pdf
