@@ -32,11 +32,30 @@ Data description:
 - Stripe 82 (equatorial region of southern Galactic cap)
 - in each of ugriz filters
 - 334 features: 66 each for ugriz filters, as well as the 4 SDSS colors
+example: the amplitude of variations delta g, 
+the best-fit period Pg, 
+the standard deviation sigma g, 
+the MAD of the Lomb-Scargle residuals divided by the MAD of the raw light
+curves, 
+scatter res raw, 
+the Stetson variability index J, 
+the lightcurve skewness g, 
+and the quasar and non-quasar variability metrics, (chi sqr)QSO/v and (chi sqr)non-qso/v
 
 why this?
 
 Algorithm:
 Randon Forest Regression (RFR)
+- Aggregate results from several decision trees to provide low-bias low-variance estimate of the properties of interest
+- each node of the tree new splitting parameter can only be selected from a random subset of mtry features in entire feature set.
+- Each parameter estimate comes from a separate model.
+
+
+Why RFR?
+
+- Fast and easy to interpret
+- good at handling tabular data with numerical features, or categorical features with fewer than hundreds of categories. 
+- Unlike linear models, random forests are able to capture non-linear interaction between the features and the target.
 
 Tuning parameters for RFR:
 1. ntree: total number of decision trees used to construct the forest; here, 5 (rule of thumb)
@@ -50,6 +69,10 @@ Optimizing models:
 
 Model biases:
 
+
+Papers that reference this paper:
+- A recurrent neural network for classification of unevenly sampled variable stars
+https://www.nature.com/articles/s41550-017-0321-z#ref-CR11
 
 Acronyms and definitions:
 - DES: Dark Energy Survey
