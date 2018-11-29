@@ -1,14 +1,15 @@
-Paper:
 https://arxiv.org/pdf/1411.1073.pdf
+
+Bigger Idea:
+Build data driven methods to learn relationships between observables and parameters of interest 
+without relying on parametric physical models.
+
 
 Big idea of and in the paper:
 This machine learning framework will allow fundamental parameters to be determined without 
 the need for additional spectroscopy.
 
 
-Bigger Idea:
-Build data driven methods to learn relationships between observables and parameters of interest 
-without relying on parametric physical models.
 
 
 Problem:
@@ -29,6 +30,7 @@ Teff, log g, and [Fe/H]
 
 Data description:
 - variable stars
+- agnostic towards variability class
 - Stripe 82 (equatorial region of southern Galactic cap)
 - in each of ugriz filters
 - 334 features: 66 each for ugriz filters, as well as the 4 SDSS colors
@@ -56,6 +58,13 @@ Why RFR?
 - Fast and easy to interpret
 - good at handling tabular data with numerical features, or categorical features with fewer than hundreds of categories. 
 - Unlike linear models, random forests are able to capture non-linear interaction between the features and the target.
+- During model construction process, the relative importance of each feature is naturally and automatically measured, since a subset of features are exluded as splitting parameters in each non-terminal node of the tree.
+
+
+Optimizing models:
+- Forward Feature selection
+- Tuning model parameters
+
 
 Tuning parameters for RFR:
 1. ntree: total number of decision trees used to construct the forest; here, 5 (rule of thumb)
@@ -64,15 +73,23 @@ here, sqrt(n) where n is total numbrer of features used in model
 3. nodesize: Minimum size of terminal nodes; setting this number larger causes smaller trees to be grown; here, nodesize = 5
 
 
-Optimizing models:
-
+For each Teff, log g, and [Fe/H] most important feature: g - r
 
 Model biases:
+1. Regression to mean: 
+2. Regression dilution: features being noisy
+3. Correlation if log g and [Fe/H] with photometric color
+
+
+What’s next:
+-	Toolbox prepared for LSST to determine fundamental parameters without the need for additional spectroscopy
+-	Prepared to infer additional fundamental parameters like mass, luminosity, and radius from atmospheric parameters.
 
 
 Papers that reference this paper:
 - A recurrent neural network for classification of unevenly sampled variable stars
 https://www.nature.com/articles/s41550-017-0321-z#ref-CR11
+
 
 Acronyms and definitions:
 - DES: Dark Energy Survey
@@ -85,7 +102,5 @@ Acronyms and definitions:
 - Stripe 82: equatorial region of southern Galactic cap
 - MMT: Multi-Mirror Telescope
 - UWVSC: University of Washington Visual Survey Catalog
-
-
 
 
